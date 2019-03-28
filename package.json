@@ -1,0 +1,22 @@
+{
+  "name": "releaser",
+  "version": "1.0.0",
+  "description": "Library to create Release mangement jira tickets via slack",
+  "main": "getComponent.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakeRowsell89/releaser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakeRowsell89/releaser/issues"
+  },
+  "homepage": "https://github.com/JakeRowsell89/releaser#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "dotenv": "^7.0.0",
+    "request": "^2.88.0"
+  }
+}
