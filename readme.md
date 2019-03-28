@@ -12,3 +12,6 @@
   -> Set description to $TICKET
   -> Set team responsible to `$TEAM_ID`
 4. Add a comment OR append release ticket link to original ticket
+
+Notes: 
+- We can't get the team id from the ticket as this doesn't match up with the "team responsible" id in the release ticket

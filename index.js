@@ -1,8 +1,17 @@
-const getComponent = require('./getComponents')
+require('dotenv').config()
 
-getComponent.then(function (response) {
-  console.log(response)
-  const info = JSON.parse(response);
-  console.log(info.fields.components);
-  return info.fields.components;
-}).catch(e => console.log(e))
+const getTicket = require('./getTicket')
+const getComponent = require('./getComponents')
+const create = require('./create')
+const ticket = 'LEGO-400'
+const team = {
+  id: '21214',
+  name: 'LEGO'
+}
+
+getTicket(ticket)
+  .then(JSON.parse)
+  .then(getComponent)
+  .then(component => create(ticket, team, component))
+  .then(x => console.log(x))
+  .catch(e => console.log(e))
