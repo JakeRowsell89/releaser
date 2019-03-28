@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/JakeRowsell89/releaser#readme",
   "dependencies": {
+    "moment": "^2.24.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   },
