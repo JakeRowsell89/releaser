@@ -1,5 +1,5 @@
 require('dotenv').config()
-const request = require('request');
+const request = require('request-promise');
 
 const options = {
     url: 'https://comparethemarket.atlassian.net/rest/api/latest/issue/LEGO-400',
@@ -12,12 +12,4 @@ const options = {
     }
 };
 
-function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        const info = JSON.parse(body);
-        console.log(info.fields.components);
-       return  info.fields.components;
-    }
-    }
-
-request(options,callback)
+module.exports = request(options)
