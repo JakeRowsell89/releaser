@@ -1,6 +1,7 @@
 const request = require('request-promise');
 const { base } = require('./options')
 const { jiraBaseURL, ticketApiPath } = require('./config')
+const moment = require('moment')
 
 const optionsBase = {
     url: `${jiraBaseURL}${ticketApiPath}`,
@@ -22,7 +23,7 @@ function buildOptions(ticket, team, component, releaseDate) {
             "customfield_11200": { id: team.id }, // team responsible
             "customfield_15000": ["CheckReleaseStartDateEndDate", "IfRecordClonedPleaseVerifyFields"],
             "customfield_11502": releaseDate,
-            "customfield_11501": releaseDate,
+            "customfield_11501": moment(releaseDate).add(30, 'minutes').format,
             "priority": { id: "3" }
         }
     })
