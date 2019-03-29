@@ -15,9 +15,11 @@
   },
   "homepage": "https://github.com/JakeRowsell89/releaser#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "moment": "^2.24.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "dotenv": "^7.0.0"

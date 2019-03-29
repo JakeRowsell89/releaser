@@ -25,8 +25,8 @@ function buildOptions(ticket, team, component, releaseDate) {
             "customfield_10802": [{ id: "16200" }], // product affected "none"
             "customfield_11200": { id: team.id }, // team responsible
             "customfield_15000": ["CheckReleaseStartDateEndDate", "IfRecordClonedPleaseVerifyFields"],
-            "customfield_11502": releaseDate, // add real dates
-            "customfield_11501": releaseDate, // add real dates
+            "customfield_11502": releaseDate,
+            "customfield_11501": releaseDate,
             "priority": { id: "3" }
         }
     })
@@ -35,8 +35,12 @@ function buildOptions(ticket, team, component, releaseDate) {
 }
 module.exports = (ticket, team, component, releaseDate) => {
     const options = buildOptions(ticket, team, component, releaseDate)
-    console.log(options)
-    console.log('DISABLED LIVE POSTING OF TICKET CREATION')
-    const x = { "id": "140860", "key": "RM-7539", "self": "https://comparethemarket.atlassian.net/rest/api/2/issue/140860" } // request(options)
-    return Promise.resolve(x)
+    const x = JSON.stringify({ "id": "140957", "key": "RM-7547", "self": "https://comparethemarket.atlassian.net/rest/api/2/issue/140957" })
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('waiting for 3 seconds')
+            resolve(x)
+        }, 3000)
+    })
+    // return request(options)
 }
