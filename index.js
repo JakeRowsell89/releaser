@@ -26,14 +26,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/book', (req, res) => {
   const ticket = req.body.text.toUpperCase()
 
+  res.send(`:rocket: Creating your release ticket for ${ticket} :rocket:`)
+
   getTicket(ticket)
     .then(JSON.parse)
     .then(getComponent)
     .then((component) => {
       const release = getNextReleaseWindow.logic(ticket)
       releaseDate = release.format()
-
-      res.send(`:rocket: Creating your release ticket for ${ticket} :rocket:`)
 
       return component
     })
