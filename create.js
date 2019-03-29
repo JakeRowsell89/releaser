@@ -37,5 +37,6 @@ module.exports = (ticket, team, component, releaseDate) => {
     const options = buildOptions(ticket, team, component, releaseDate)
     console.log(options)
     console.log('DISABLED LIVE POSTING OF TICKET CREATION')
-    return { "id": "140860", "key": "RM-7539", "self": "https://comparethemarket.atlassian.net/rest/api/2/issue/140860" } // request(options)
+    const x = { "id": "140860", "key": "RM-7539", "self": "https://comparethemarket.atlassian.net/rest/api/2/issue/140860" } // request(options)
+    return Promise.resolve(x)
 }

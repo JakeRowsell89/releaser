@@ -1,7 +1,7 @@
 1. Get ticket component 
   -> get first component description and set as $COMPONENT
   -> get `customfield_11200.value` and set as $TEAM_NAME
-  -> get `customfield_11200.id` and set as $TEAM_ID
+  -> get `customfield_11200.id` and set as $TEAM_ID 
 2. Logic to find timeslot based on component
   2.1 Is it a standard change?
   2.2 Get products affected

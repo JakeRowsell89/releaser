@@ -4,6 +4,7 @@ const getTicket = require('./getTicket')
 const getComponent = require('./getComponents')
 const create = require('./create')
 const getNextReleaseWindow = require('./businessCases')
+const addReleaseTicketToTicket = require('./addCommentToTicket')
 const ticket = 'LEGO-400'
 const team = {
   id: '21214',
@@ -21,5 +22,6 @@ getTicket(ticket)
     return component
   })
   .then(component => create(ticket, team, component, releaseDate))
+  .then(releaseTicket => addReleaseTicketToTicket(ticket, releaseTicket))
   .then(x => console.log(x))
   .catch(e => console.log(e))
