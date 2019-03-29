@@ -1,15 +1,11 @@
 const request = require('request-promise');
+const { base } = require('./options')
+const { jiraBaseURL, ticketApiPath } = require('./config')
 
 const optionsBase = {
-    url: 'https://comparethemarket.atlassian.net/rest/api/2/issue/',
+    url: `${jiraBaseURL}${ticketApiPath}`,
     method: 'POST',
-    auth: {
-        'user': process.env.JIRA_USER,
-        'pass': process.env.JIRA_TOKEN
-    },
-    headers: {
-        'Content-Type': 'application/json'
-    }
+    ...base,
 };
 
 function buildOptions(ticket, team, component, releaseDate) {

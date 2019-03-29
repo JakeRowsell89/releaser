@@ -1,26 +1,22 @@
 const request = require('request-promise');
-
-
+const { base } = require('./options')
+const { jiraBaseURL, ticketApiPath, ticketGuiPath } = require('./config')
 
 function buildOptions(ticket, releaseTicket) {
   console.log('ticket ', ticket)
   console.log('releaseTicket ', releaseTicket)
 
   const optionsBase = {
-    url: `https://comparethemarket.atlassian.net/rest/api/2/issue/${ticket}/comment`,
+    url: `${jiraBaseURL}${ticketApiPath}${ticket}/comment`,
     method: 'POST',
-    auth: {
-      'user': process.env.JIRA_USER,
-      'pass': process.env.JIRA_TOKEN
-    },
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    ...base,
   };
 
   const body = JSON.stringify({
-    "body": `[${releaseTicket.key}|https://comparethemarket.atlassian.net/browse/${releaseTicket.key}]`
+    "body": `[${releaseTicket.key}|${jiraBaseURL}${ticketGuiPath}${releaseTicket.key}]`
   })
+
+  console.log(body)
 
   return { ...optionsBase, body }
 }
